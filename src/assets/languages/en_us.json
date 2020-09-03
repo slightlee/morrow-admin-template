@@ -1,0 +1,18 @@
+{
+  "common": {
+    "home": "Home",
+    "myMsg": "My Message",
+    "config": "Config",
+    "login": "Login",
+    "logout": "Logout",
+    "exit": "Exit",
+    "doc": "Document"
+  },
+  "sys": {
+    "sysMng": "System Manage",
+    "userMng": "User Manage",
+    "roleMng": "Role Manage",
+    "menuMng": "Menu Manage",
+    "sysMonitor": "System Monitor"
+  }
+}
