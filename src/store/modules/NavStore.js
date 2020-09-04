@@ -2,8 +2,8 @@ export default {
     state: {
         appName: "morrow",  // 应用名称 显示在左上角
         collapse:false,  // 导航栏收缩状态
-        themeColor: "#545c64",  // 主题颜色
-        oldThemeColor: "#545c64",   // 上一次主题颜色
+        themeColor: "#14889A",  // 主题颜色
+        oldThemeColor: "#14889A",   // 上一次主题颜色
         menuRouteLoaded:false  // 菜单和路由是否已经加载
     },
     getters: {
