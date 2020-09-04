@@ -1,5 +1,8 @@
 <template>
-   <h2> 这是首页</h2>
+   <div>
+      <h2> <i class="fa fa-home fa-lg"></i> 这是首页</h2>
+   </div>
+
 </template>
 
 <script>
@@ -11,7 +14,7 @@
     }
 </script>
 
-<style>
+<style>iconfont
     .carousel {
         padding-left: 20px;
         padding-right: 20px;
