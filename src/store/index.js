@@ -4,6 +4,7 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 import NavStore from './modules/NavStore.js';
+import Menu from './modules/Menu.js';
 
 
 export default new Vuex.Store({
@@ -16,6 +17,7 @@ export default new Vuex.Store({
   actions: {
   },
   modules: {
-    nav_store: NavStore
+    nav_store: NavStore,
+    menu: Menu
   }
 })

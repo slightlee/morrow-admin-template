@@ -5,45 +5,28 @@
             <img :src="this.logo" /> <div>{{collapse?'':appName}}</div>
         </div>
         <!-- 导航菜单 -->
-        <el-menu default-active="1-1" :class="collapse?'menu-bar-collapse-width':'menu-bar-width'"
+        <el-menu default-active="1" :class="collapse?'menu-bar-collapse-width':'menu-bar-width'"
                  :collapse="collapse" @open="handleopen" @close="handleclose" @select="handleselect">
-            <el-submenu index="1">
-                <template slot="title">
-                    <i class="el-icon-location"></i>
-                    <span slot="title">{{$t("sys.sysMng")}}</span>
-                </template>
-                <el-menu-item index="1-1" @click="$router.push('user')">{{$t("sys.userMng")}}</el-menu-item>
-                <el-menu-item index="1-3" @click="$router.push('role')">{{$t("sys.roleMng")}}</el-menu-item>
-                <el-menu-item index="1-4" @click="$router.push('menu')">{{$t("sys.menuMng")}}</el-menu-item>
-            </el-submenu>
-            <el-submenu index="2">
-                <template slot="title">
-                    <i class="el-icon-location"></i>
-                    <span slot="title">{{$t("sys.sysMonitor")}}</span>
-                </template>
-            </el-submenu>
-            <el-menu-item index="3" disabled>
-                <i class="el-icon-document"></i>
-                <span slot="title">{{$t("sys.nav3")}}</span>
-            </el-menu-item>
-            <el-menu-item index="4">
-                <i class="el-icon-setting"></i>
-                <span slot="title">{{$t("sys.nv4")}}</span>
-            </el-menu-item>
+            <!-- 导航菜单树组件，动态加载菜单 -->
+            <menu-tree v-for="item in menuTree" :key="item.menuId" :menu="item"></menu-tree>
         </el-menu>
     </div>
 </template>
+
 <script>
 
     import { mapState } from 'vuex'
+    import MenuTree from "@/components/MenuTree"
+
 
     export default {
         name: "MenuBar",
+        components:{
+            MenuTree
+        },
         data() {
             return {
-                isCollapse: false,
-                sysName: "",
-                logo: "",
+                logo: ""
             }
         },
         methods: {
@@ -56,15 +39,17 @@
             handleselect(a, b) {
                 console.log('handleselect');
             }
+
          },
         mounted() {
-            this.logo = require("@/assets/logo1.png");
+            this.logo = require("@/assets/logo1.png")
         },
         computed:{
             ...mapState({
                 appName: state=>state.nav_store.appName,
                 collapse: state=>state.nav_store.collapse,
-                themeColor: state=>state.nav_store.themeColor
+                themeColor: state=>state.nav_store.themeColor,
+                menuTree: state =>state.menu.menuTree
             })
         }
     };

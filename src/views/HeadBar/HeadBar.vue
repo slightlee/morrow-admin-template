@@ -63,7 +63,7 @@
             },
             // 切换主题
             onThemeChange: function(themeColor, oldThemeColor) {
-                this.$store.dispatch('onThemeChange', {themeColor, oldThemeColor});
+                this.$store.dispatch('onThemeChange', {themeColor, oldThemeColor})
             },
             //退出登录
             logout: function() {
@@ -72,17 +72,17 @@
                     type: "warning"
                 })
                     .then(() => {
-                        sessionStorage.removeItem("user");
-                        this.$router.push("/login");
+                        sessionStorage.removeItem("user")
+                        this.$router.push("/login")
                     })
-                    .catch(() => {});
+                    .catch(() => {})
             }
         },
         mounted() {
-            var user = sessionStorage.getItem("user");
+            var user = sessionStorage.getItem("user")
             if (user) {
-                this.username = user;
-                this.userAvatar = require("@/assets/icon1.png");
+                this.username = user
+                this.userAvatar = require("@/assets/icon1.png")
             }
         },
         computed:{
