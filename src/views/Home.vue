@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <!-- 导航菜单栏 -->
-    <MenuBar></MenuBar>
+    <NavBar></NavBar>
     <!-- 头部区域 -->
     <HeadBar></HeadBar>
     <!-- 主内容区域 -->
@@ -12,14 +12,14 @@
 <script>
 // @ is an alias to /src
 import HeadBar from "./HeadBar/HeadBar"
-import MenuBar from "./MenuBar/MenuBar"
+import NavBar from "./NavBar/NavBar"
 import Main from "./Main/Main"
 
 export default {
   name: 'Home',
   components: {
     HeadBar,
-    MenuBar,
+    NavBar,
     Main
   }
 

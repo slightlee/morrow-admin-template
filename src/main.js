@@ -5,8 +5,6 @@ import store from './store'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 
-import '@/theme/theme-409eff/index.css'
-
 import apis from './http/index'
 import i18n from './i18n'
 
