@@ -1,11 +1,12 @@
 <template>
     <div class="menu-bar-container">
         <!-- logo -->
-        <div class="logo" :class="isCollapse?'menu-bar-collapse-width':'menu-bar-width'">
-            <img :src="this.logo" /> <div>{{isCollapse?'':sysName}}</div>
+        <div class="logo" :style="{'background-color':themeColor}" :class="collapse?'menu-bar-collapse-width':'menu-bar-width'">
+            <img :src="this.logo" /> <div>{{collapse?'':appName}}</div>
         </div>
         <!-- 导航菜单 -->
-        <el-menu default-active="1-1" :class="isCollapse?'menu-bar-collapse-width':'menu-bar-width'" @open="handleopen" @close="handleclose" @select="handleselect" :collapse="isCollapse">
+        <el-menu default-active="1-1" :class="collapse?'menu-bar-collapse-width':'menu-bar-width'"
+                 :collapse="collapse" @open="handleopen" @close="handleclose" @select="handleselect">
             <el-submenu index="1">
                 <template slot="title">
                     <i class="el-icon-location"></i>
@@ -33,6 +34,9 @@
     </div>
 </template>
 <script>
+
+    import { mapState } from 'vuex'
+
     export default {
         name: "MenuBar",
         data() {
@@ -54,8 +58,14 @@
             }
          },
         mounted() {
-            this.sysName = "I like Kitty";
-            this.logo = require("@/assets/logo.png");
+            this.logo = require("@/assets/logo1.png");
+        },
+        computed:{
+            ...mapState({
+                appName: state=>state.nav_store.appName,
+                collapse: state=>state.nav_store.collapse,
+                themeColor: state=>state.nav_store.themeColor
+            })
         }
     };
 </script>
@@ -73,7 +83,7 @@
             top: 0px;
             height: 60px;
             line-height: 60px;
-            background: #4b5f6e;
+            background: #545c64;
             img {
                 width: 40px;
                 height: 40px;

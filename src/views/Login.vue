@@ -63,10 +63,8 @@
             },
             reset() {
                 this.$refs.loginForm.resetFields();
-            },
-            onThemeChange(){
-
             }
+
         }
     }
 </script>
