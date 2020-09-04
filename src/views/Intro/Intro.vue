@@ -1,6 +1,8 @@
 <template>
    <div>
       <h2> <i class="fa fa-home fa-lg"></i> 这是首页</h2>
+
+      <i class="kt-icon-baoguo_shouna_o"></i>
    </div>
 
 </template>
